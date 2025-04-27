@@ -1,0 +1,27 @@
+Code for Sentiment Analysis
+pip install textblob
+python -m textblob.download_corpora
+from textblob import TextBlob
+# defining
+def analyze_sentiment(text):
+ blob = TextBlob(text)
+ sentiment_score = blob.sentiment.polarity
+#condition
+ if sentiment_score > 0:
+ sentiment = "Positive 😊"
+ elif sentiment_score < 0:
+ sentiment = "Negative 😞"
+ else:
+ sentiment = "Neutral 😐"
+ return sentiment, sentiment_score
+# Example usage
+print("=== Sentiment Analyzer ===")
+user_input = input("Enter your text: ")
+result, score = analyze_sentiment(user_input)
+print(f"\nSentiment: {result}")
+print(f"Polarity Score: {score}")
+Output
+=== Sentiment Analyzer ===
+Enter your text: I love using this product, it's fantastic!
+Sentiment: Positive 😊
+Polarity Score: 0.512
